@@ -1,8 +1,9 @@
 const express = require('express')
-
+const cors = require('cors')
 const app = express()
-const port = 3000
+const port = 3001
 app.use(express.json())
+app.use(cors())
 const uuid = require("uuid")
 
 const requestsFood = []
@@ -74,7 +75,7 @@ app.delete('/order/:id', checkRequestsFoodId, checkMethod, (request, response) =
     return response.status(204).json()
 })
 
-app.get('/order/:id', checkRequestsFoodId, checkMethod, (request, response) => {
+app.get('/order/id', checkRequestsFoodId, checkMethod, (request, response) => {
 
     const index = request.index
 
